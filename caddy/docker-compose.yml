@@ -3,7 +3,7 @@ version: '3'
 services:
   lb:
     image: caddy:2.7.6
-    container_name: caddy
+    container_name: lb
     ports:
       - 8080:80
     depends_on:
@@ -13,17 +13,20 @@ services:
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
   app1: 
-    image: app1
-    build:
-      context: app1/
+    image: application
+    container_name: app1
+    environment:
+      - APP_NAME=app1
   app2:
-    image: app2
-    build:
-      context: app2/
+    image: application
+    container_name: app2
+    environment:
+      - APP_NAME=app2
   app3:
     image: app3
-    build:
-      context: app3/
+    container_name: app3
+    environment:
+      - APP_NAME=app3
 
   redis:
     image: "redis:alpine"
