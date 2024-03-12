@@ -16,5 +16,7 @@ stop-nginx:
 	docker compose -f nginx/docker-compose.yml down
 
 clean:
+	docker compose -f caddy/docker-compose.yml down
+	docker compose -f nginx/docker-compose.yml down
 	docker system prune -af
 	docker volume prune -f
