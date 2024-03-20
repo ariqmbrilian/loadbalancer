@@ -1,5 +1,11 @@
 Load Balancer round robin performance analysis between nginx and caddy
 
+
+## RUN TEST
+```
+k6 run -d 1m -u 100 test.js
+```
+
 CADDY
 ```
 echo "GET http://localhost:8080/" | vegeta attack -duration=5s | tee results.bin | vegeta report
