@@ -18,13 +18,8 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
-# INSTALL DOCKER
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# INSTALL PACKAGE
+sudo apt-get install build-essential docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 # ADD NON ROOT USER
 sudo usermod -aG docker $USER
-
-
-# OHA
-
-# VEGETA
