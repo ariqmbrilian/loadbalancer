@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  lb:
+    image: nginx:1.24.0
+    container_name: lb
+    ports:
+      - "8081:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app1
+      - app2
+      - app3
+      
+  app1: 
+    image: application
+    container_name: app1
+    environment:
+      - APP_NAME=app1
+    depends_on:
+      - redis
+
+  app2: 
+    image: application
+    container_name: app2
+    environment:
+      - APP_NAME=app2
+    depends_on:
+      - redis
+
+  app3: 
+    image: application
+    container_name: app3
+    environment:
+      - APP_NAME=app3
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+    container_name: redis
