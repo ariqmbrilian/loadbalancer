@@ -51,12 +51,19 @@ resource "azurerm_linux_virtual_machine" "caddy" {
     version   = "latest"
   }
 
+  provisioner "file" {
+     source = "../preconf.sh"
+     destination = "/tmp/preconf.sh"
+  }
+
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get update",
-      "sudo apt-get install docker.io -y",
-      "git clone https://github.com/devopsschool-training-notes/terraform-ey-june-2021",
-      "sudo docker run -d -p 80:80 httpd"
+      "/bin/bash /tmp/preconf.sh",
+      "sudo chown $USER /var/run/docker.sock",
+      "git clone https://github.com/ariqmbrilian/loadbalancer.git && cd loadbalancer",
+      "make build",
+      "make start-caddy"
     ]
   }
   connection {
