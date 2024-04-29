@@ -36,7 +36,7 @@ resource "azurerm_linux_virtual_machine" "nginx" {
   admin_password                  = var.password
   disable_password_authentication = false
   network_interface_ids           = [azurerm_network_interface.nginx-nic.id]
-  size                            = "Standard_D3s"
+  size                            = "Standard_D4s_v3"
 
   os_disk {
     name                 = "nginxOsDisk"
