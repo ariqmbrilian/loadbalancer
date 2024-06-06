@@ -62,8 +62,8 @@ resource "azurerm_linux_virtual_machine" "nginx" {
       "/bin/bash /tmp/preconf.sh",
       "sudo chown $USER /var/run/docker.sock",
       "git clone https://github.com/ariqmbrilian/loadbalancer.git && cd loadbalancer",
-      "./script build",
-      "./script start-nginx"
+      "./script.sh build",
+      "./script.sh start-nginx"
     ]
   }
   connection {
