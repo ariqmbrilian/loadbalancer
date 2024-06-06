@@ -1,12 +1,9 @@
-version: '3'
-
 services:
   lb:
     image: caddy:2.7.6
     container_name: lb
-    network_mode: host
-#    ports:
-#      - 80:80
+    ports:
+      - 80:80
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
     depends_on:
