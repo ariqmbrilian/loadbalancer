@@ -61,7 +61,7 @@ case "$1" in
     clean
     ;;
   *)
-    echo "Usage: $0 {start-caddy|stop-caddy|start-nginx|stop-nginx|clean}"
+    echo "Usage: $0 {create-vm|delete-vm|start-caddy|stop-caddy|start-nginx|stop-nginx|clean}"
     exit 1
     ;;
 esac
