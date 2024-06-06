@@ -62,8 +62,8 @@ resource "azurerm_linux_virtual_machine" "caddy" {
       "/bin/bash /tmp/preconf.sh",
       "sudo chown $USER /var/run/docker.sock",
       "git clone https://github.com/ariqmbrilian/loadbalancer.git && cd loadbalancer",
-      "make build",
-      "make start-caddy"
+      "./script build",
+      "./script start-caddy"
     ]
   }
   connection {
