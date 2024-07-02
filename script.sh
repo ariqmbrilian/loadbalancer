@@ -16,7 +16,7 @@ create_vm() {
 delete_vm() {
   cd terraform
   terraform destroy -auto-approve
-  rm terraform.state
+  rm terraform.tfstate
   cd ..
 }
 
