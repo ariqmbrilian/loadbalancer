@@ -13,6 +13,12 @@ create_vm() {
   cd ..
 }
 
+build() {
+  cd application
+  docker build -t application .
+  cd ..
+}
+
 delete_vm() {
   cd terraform
   terraform destroy -auto-approve
@@ -42,6 +48,9 @@ case "$1" in
   create-vm)
     create_vm
     ;;
+  build)
+    build
+    ;; 
   delete-vm)
     delete_vm
     ;;
@@ -61,7 +70,7 @@ case "$1" in
     clean
     ;;
   *)
-    echo "Usage: $0 {create-vm|delete-vm|start-caddy|stop-caddy|start-nginx|stop-nginx|clean}"
+    echo "Usage: $0 {create-vm|build|delete-vm|start-caddy|stop-caddy|start-nginx|stop-nginx|clean}"
     exit 1
     ;;
 esac
