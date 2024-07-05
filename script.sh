@@ -2,8 +2,8 @@
 
 set -o errexit
 
-CADDY_COMPOSE_FILE="caddy/docker-compose.yml"
-NGINX_COMPOSE_FILE="nginx/docker-compose.yml"
+CADDY_COMPOSE_FILE="caddy/compose.yml"
+NGINX_COMPOSE_FILE="nginx/compose.yml"
 
 
 create_vm() {
